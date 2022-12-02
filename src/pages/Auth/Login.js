@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import FirebaseContext from "./../../context/firebase";
 import "./style.css";
 import { HOME, LOGIN, SIGN_UP, FORGOTPASSWORD } from "./../../constants/routes";
-import MainSide from "./MainSide";
 
 const Login = () => {
     const { firebase } = useContext(FirebaseContext);
@@ -33,32 +32,39 @@ const Login = () => {
     }, []);
 
     return (
-        <div className="h-screen w-screen flex">
-            <div className="w-1/2 h-full">
-                <MainSide />
+        <div className="flex justify-center gap-[30px]">
+            <div className="w-[30%] h-full bg-[url('/imgs/loginLeftImg.png')]  bg-no-repeat h-full flex my-[2rem]">
+                <img
+                    src="/imgs/screenshot1.png"
+                    alt="second bg"
+                    className="w-[250px] h-[541px] ml-[158px] mt-[25px]"
+                />
             </div>
-            <div className="w-1/2 h-full flex align-center mt-[3rem]">
-                <div className="ml-[2.3rem]">
-                    <img src="/imgs/instaLogo.png" alt="logo" />
+            <div className="h-[399px] flex align-center justify-center mt-[3rem] w-[350px] border border-grey">
+                <div>
+                    <div className="flex justify-center mt-[47px] mb-[20px]">
+                        <img
+                            className="w-[174px] h-[50px]"
+                            src="/imgs/instaLogo.png"
+                            alt="logo"
+                        />
+                    </div>
                     <div className="flex flex-col">
-                        <div className="p-4 bg-white border border-gray-primary mb-4 w-80 rounded">
+                        <div>
                             <div className="text-center mb-8"></div>
                             {error && (
                                 <p className="mb-4 text-xs text-red-500">
                                     {error}
                                 </p>
                             )}
-                            <form
-                                onSubmit={handleSubmit}
-                                className=""
-                                method="post">
+                            <form onSubmit={handleSubmit} method="post">
                                 <div>
                                     <input
                                         type="text"
                                         aria-label="Enter your email address"
                                         placeholder="Email address"
-                                        className="text-sm text-gray-base w-full py-5 px-4 h-2 border
-                                border-gray-primary rounded mb-2"
+                                        className="text-[1rem] text-gray-base w-full py-5 px-4 h-2 border
+                                        border-gray-primary rounded mb-[15px] bg-gray-50"
                                         value={email}
                                         onChange={(e) =>
                                             setEmail(e.target.value)
@@ -70,8 +76,8 @@ const Login = () => {
                                         type="password"
                                         aria-label="Enter your password"
                                         placeholder="Password"
-                                        className="text-sm text-gray-base w-full py-5 px-4 h-2 border
-                                border-gray-primary rounded mb-2"
+                                        className="text-[1rem] text-gray-base w-full py-5 px-4 h-2 border
+                                border-gray-primary rounded mb-[15px] bg-gray-50"
                                         value={password}
                                         onChange={(e) =>
                                             setPassword(e.target.value)
@@ -82,30 +88,33 @@ const Login = () => {
                                     <button
                                         disabled={isInvalid}
                                         type="submit"
-                                        className={`bg-blue-inst cursor-pointer text-white rounded w-full h-8 font-bold ${
+                                        className={`bg-[#77C8F8] cursor-pointer text-white rounded w-full h-8 font-bold ${
                                             isInvalid && "opacity-50"
                                         }`}>
                                         Log In
                                     </button>
+                                    <span className="content-none "></span>
                                 </div>
                                 <div>
                                     <Link
                                         to={FORGOTPASSWORD}
-                                        className="font-semibold text-sm text-blue-inst">
+                                        className="flex justify-center mt-[30px] font-semibold text-sm text-blue-inst">
                                         Forgot password?
                                     </Link>
                                 </div>
                             </form>
                         </div>
-                        <div className="rounded flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary">
-                            <p className="text-sm">
-                                Don't have an account?{` `}
-                                <Link
-                                    to={SIGN_UP}
-                                    className="font-bold text-blue-inst">
-                                    Sign up
-                                </Link>
-                            </p>
+                        <div className="mt-[60px]">
+                            <div className="rounded flex align-center justify-center items-center flex-col w-full py-[23px]">
+                                <p className="text-sm">
+                                    Don't have an account?{` `}
+                                    <Link
+                                        to={SIGN_UP}
+                                        className="font-bold text-blue-inst">
+                                        Sign up
+                                    </Link>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,6 @@ const SuggestedProfile = ({ profileDocId, username, profileId, userId, loggedInU
 
         await updateFollowedUserFollowers(profileDocId, userId, false);
     }
-    console.log(profileImage)
     return !followed ? (
         <div className="flex flex-row items-center align-items justify-between">
             <div className="flex items-center justify-between">

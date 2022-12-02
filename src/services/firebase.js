@@ -45,8 +45,6 @@ export const getSuggestedProfiles = async (userId, following) => {
     return profiles;
 }
 
-// updateLoggedInUserFollowing(loggedInUserDocId, profileId) updateFollowedUserFollowers(spDocId, userId)
-
 export const updateLoggedInUserFollowing = async (loggedInUserDocId, profileId, isFollowingProfile) => {
     return await firebase
         .firestore()

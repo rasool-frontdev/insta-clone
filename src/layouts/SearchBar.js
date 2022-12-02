@@ -37,7 +37,7 @@ const SearchBar = ({ searchInput }) => {
         >
             {!filteredItems.length && (
                 <div className="flex items-center justify-center h-full">
-                    <p className="font-semibold">User with this username doesn't exist</p>
+                    <p>No results found.</p>
                 </div>
             )}
             {filteredItems.map(profile => (
