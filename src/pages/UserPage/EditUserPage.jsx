@@ -7,7 +7,7 @@ import { updateAvatarUser } from "../../services/firebase";
 import useUser from "../../hooks/useUser";
 import { updateUser } from "../../services/firebase";
 import EditModalProfile from "../../components/SetProfile/SettingProfile";
-import { CircularProgress } from "@mui/material";
+import HashLoader from "react-spinners/HashLoader";
 
 const EditUserPage = () => {
     const [loading, setLoading] = useState(false);
@@ -195,11 +195,15 @@ const EditUserPage = () => {
                             </button>
                         ) : (
                             <button className="bg-[#005c98] font-bold text-sm rounded text-white w-20 h-8 opacity-70">
-                                <div className="flex items-center justify-center">
-                                    <CircularProgress
-                                        className="mr-2 height={'35%'}
-                                    width={'30%'}"
-                                        color="success"
+                                <div className="flex items-center justify-center ">
+                                    <HashLoader
+                                        height={"15px"}
+                                        width={"3px"}
+                                        color={"white"}
+                                        loading={loading}
+                                        size={"20px"}
+                                        aria-label="Loading Spinner"
+                                        data-testid="loader"
                                     />
                                 </div>
                             </button>

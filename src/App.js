@@ -28,7 +28,6 @@ function App() {
                             <CircularProgress
                                 className="mr-2 height=[10%]
                                     width=[10%]"
-                                color="success"
                             />
                         </div>
                     }>

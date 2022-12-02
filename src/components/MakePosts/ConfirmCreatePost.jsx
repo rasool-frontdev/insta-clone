@@ -6,7 +6,7 @@ import { storage } from "../../library/firebase";
 import { v4 as uuidv4 } from "uuid";
 import useUser from "../../hooks/useUser";
 import { addPostToFirestore } from "../../services/firebase";
-import { CircularProgress } from "@mui/material";
+import HashLoader from "react-spinners/HashLoader";
 
 const ConfirmCreatePost = ({ image, back }) => {
     const {
@@ -121,10 +121,14 @@ const ConfirmCreatePost = ({ image, back }) => {
                     <div className="flex justify-end">
                         <button className="bg-[#005c98] font-bold text-sm rounded text-white w-20 h-8 opacity-70">
                             <div className="flex items-center justify-center">
-                                <CircularProgress
-                                    className="mr-2 height={'25%'}
-                                    width={'25%'}"
-                                    color="success"
+                                <HashLoader
+                                    height={"15px"}
+                                    width={"3px"}
+                                    color={"white"}
+                                    loading={loading}
+                                    size={"20px"}
+                                    aria-label="Loading Spinner"
+                                    data-testid="loader"
                                 />
                                 <span>{`${loading}%`}</span>
                             </div>
