@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import SmileSvg from "./SmileSvg";
+import SmileSvg from "./SmilesSvg";
 import { EMOJISCHAR } from "../../helpers/Emojis";
 import "./style.css";
 import { storage } from "../../library/firebase";
 import { v4 as uuidv4 } from "uuid";
-import useUser from "./../../hooks/useUser";
-import { addPostToFirestore } from "./../../services/firebase";
+import useUser from "../../hooks/useUser";
+import { addPostToFirestore } from "../../services/firebase";
 import { CircularProgress } from "@mui/material";
 
 const ConfirmCreatePost = ({ image, back }) => {

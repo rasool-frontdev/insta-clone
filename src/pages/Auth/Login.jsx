@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import FirebaseContext from "../../context/firebase";
+import FirebaseContext from "../../Context/firebase";
 import "./style.css";
-import { HOME, LOGIN, SIGN_UP, FORGOTPASSWORD } from "../../constants/routes";
+import { HOME, LOGIN, SIGN_UP, FORGOTPASSWORD } from "../../Constant/routes";
 
 const Login = () => {
     const { firebase } = useContext(FirebaseContext);

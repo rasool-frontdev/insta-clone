@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Actions from './Actions';
+import Actions from './Act';
 import Header from './Header';
 import Image from './Image';
 import Footer from './Footer';

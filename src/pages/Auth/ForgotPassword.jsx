@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { Link } from "react-router-dom";
 import Login from "./Login";
-import { LOGIN } from "../../constants/routes";
+import { LOGIN } from "../../Constant/routes";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");

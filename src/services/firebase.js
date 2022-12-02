@@ -249,7 +249,7 @@ export const getPhotosByPhotoId = async (userId, photoId) => {
     return photosWithUserDetails();
 };
 
-export const getAllUsers = async () => {
+export const Allusers = async () => {
     const result = await firebase.firestore().collection("users").get();
 
     return result.docs.map((item) => ({

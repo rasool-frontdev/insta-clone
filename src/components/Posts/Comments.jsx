@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
-import AddComment from './AddComment';
+import AddComment from './PostComment';
 
 const Comments = ({ docId, comments: allComments, posted, commentInput }) => {
     const [ comments, setComments ] = useState(allComments);

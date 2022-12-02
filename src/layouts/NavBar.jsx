@@ -1,31 +1,29 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { EDIT_PROFILE, HOME, LOGIN } from "../constants/routes";
-import UserSvg from "../icons/UserSvg";
+import { EDIT_PROFILE, HOME, LOGIN } from "../Constant/routes";
 import SquarePlus from "../icons/SquarePlus";
-import HouseSvg from "../icons/HouseSvg";
-import SendSvg from "../icons/SendSvg";
-import UserContext from "./../context/user";
-import FirebaseContext from "./../context/firebase";
-import SignOut from "../icons/SignOut";
-import { SIGN_UP } from "./../constants/routes";
-import CreatePost from "../components/createPost/CreatePost";
+import UserContext from "../Context/User";
+import FirebaseContext from "../Context/firebase";
+import SignOut from "../icons/LogOut";
+import { SIGN_UP } from "../Constant/routes";
+import CreatePost from "../components/MakePosts/MakePost";
 import useUser from "../hooks/useUser";
 import SearchBar from "./SearchBar";
 import { BsSearch } from "react-icons/bs";
 import { ImHome } from "react-icons/im";
 import "./style.css";
 
-const NavBar = () => {
-    const navigate = useNavigate();
+const Navbar = () => {
     const searchRef = useRef();
-    const navbarRef = useRef(null);
-    const [focused, setFocused] = useState(false);
-    const [search, setSearch] = useState("");
-    const { firebase } = useContext(FirebaseContext);
-    const { user } = useContext(UserContext);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [focused, setFocused] = useState(false);
+    const navbarRef = useRef(null);
     const [open, setOpen] = useState(false);
+    const { user } = useContext(UserContext);
+    const { firebase } = useContext(FirebaseContext);
+    const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+
     const {
         user: { avatarSrc, username },
     } = useUser();
@@ -38,7 +36,7 @@ const NavBar = () => {
     });
 
     useEffect(() => {
-        function handleClickOutside(event) {
+        function handlerOutside(event) {
             if (
                 searchRef.current &&
                 !searchRef.current.contains(event.target)
@@ -46,9 +44,9 @@ const NavBar = () => {
                 setFocused(false);
             }
         }
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handlerOutside);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("mousedown", handlerOutside);
         };
     }, [searchRef]);
 
@@ -235,4 +233,4 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+export default Navbar;

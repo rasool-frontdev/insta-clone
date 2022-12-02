@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import FirebaseContext from "../../context/firebase";
+import FirebaseContext from "../../Context/firebase";
 import "./style.css";
-import { HOME, LOGIN } from "../../constants/routes";
+import { HOME, LOGIN } from "../../Constant/routes";
 import { doesUsernameExist } from "../../services/firebase";
 
 const SignUp = () => {

@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { getAuth, updatePassword, updateEmail } from "firebase/auth";
-import UserContext from "../../context/user";
+import UserContext from "../../Context/User";
 import { v4 as uuidv4 } from "uuid";
 import { storage } from "../../library/firebase";
 import { updateAvatarUser } from "../../services/firebase";
 import useUser from "../../hooks/useUser";
 import { updateUser } from "../../services/firebase";
-import EditModalProfile from "../../components/editProfile/EditModalProfile";
+import EditModalProfile from "../../components/SetProfile/SettingProfile";
 import { CircularProgress } from "@mui/material";
 
 const EditUserPage = () => {

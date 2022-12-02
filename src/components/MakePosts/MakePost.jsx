@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import ArrowLeftSvg from "./ArrowLeftSvg";
 import CloseSvg from "./CloseSvg";
 import ConfirmCreatePost from "./ConfirmCreatePost";
-import UploadImage from "./UploadImage";
+import UploadImage from "./UpDateImage";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
 const CreatePost = ({ open, setOpen }) => {

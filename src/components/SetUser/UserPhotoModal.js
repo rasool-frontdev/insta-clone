@@ -3,7 +3,7 @@ import {
     deletePhotoByDocId,
     getPhotosByPhotoId,
     getUserByUserId,
-} from "../../services/firebase";
+} from "../../service/firebase";
 import CloseSvg from "../MakePosts/CloseSvg";
 import Skeleton from "react-loading-skeleton";
 import { getStorage, ref, deleteObject } from "firebase/storage";
@@ -13,7 +13,7 @@ import { RemoveScrollBar } from "react-remove-scroll-bar";
 import UserPhotoModalComments from "./UserPhotoModalComments";
 import "./style.css";
 import FooterModal from "./FooterModal";
-import UserContext from "../../Context/User";
+import UserContext from "../../Context/user";
 import UserPhotoModalPost from "./UserPhotoModalPost";
 import { UserProfileContext } from "./UserProfile";
 

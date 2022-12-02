@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getUserByUsername } from '../../services/firebase';
-import { useNavigate } from 'react-router-dom';
-import { NOT_FOUND } from '../../constants/routes';
-import Header from '../../components/profile/Header';
-import UserProfile from '../../components/profile/UserProfile';
+import { getUserByUsername } from "../../services/firebase";
+import { useNavigate } from "react-router-dom";
+import { NOT_FOUND } from "../../Constant/routes";
+import Header from "../../components/profile/Header";
+import UserProfile from "../../components/profile/UserProfile";
 
 const UserPage = () => {
     const { username } = useParams();
-    const [ user, setUser ] = useState(null);
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const UserPage = () => {
             } else {
                 navigate(NOT_FOUND);
             }
-        }
+        };
 
         checkUserExists();
     }, [username, navigate]);
@@ -30,9 +30,7 @@ const UserPage = () => {
                 <UserProfile user={user} />
             </div>
         </div>
-    ) : (
-        null
-    );
+    ) : null;
 };
 
 export default UserPage;

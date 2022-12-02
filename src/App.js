@@ -1,18 +1,18 @@
 import React from "react";
 import useAuthListener from "./hooks/useAuthListener";
 import EditUserPage from "./pages/UserPage/EditUserPage";
-import ProtectedRoute from "./helpers/ProtectedRoute";
-import IsUserLoggedIn from "./helpers/IsUserLoggedIn";
+import ProtectedRoute from "./helpers/ProtectedRoutes";
+import IsUserLogIn from "./helpers/IsUserLogIn";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import * as ROUTE from "./constants/routes";
-import UserContext from "./context/user";
+import * as ROUTE from "./Constant/routes";
+import UserContext from "./Context/User";
 import Layout from "./layouts/Layout.jsx";
 import { CircularProgress } from "@mui/material";
 
 const ForgotPassword = React.lazy(() => import("./pages/Auth/ForgotPassword"));
 const UserPage = React.lazy(() => import("./pages/UserPage/UserPage"));
-const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
+const HomePage = React.lazy(() => import("./pages/Home/Home"));
 const Login = React.lazy(() => import("./pages/Auth/Login.jsx"));
 const SignUp = React.lazy(() => import("./pages/Auth/SignUp.jsx"));
 
@@ -53,25 +53,25 @@ function App() {
                         <Route
                             path={ROUTE.LOGIN}
                             element={
-                                <IsUserLoggedIn user={user}>
+                                <IsUserLogIn user={user}>
                                     <Login />
-                                </IsUserLoggedIn>
+                                </IsUserLogIn>
                             }
                         />
                         <Route
                             path={ROUTE.FORGOTPASSWORD}
                             element={
-                                <IsUserLoggedIn user={user}>
+                                <IsUserLogIn user={user}>
                                     <ForgotPassword />
-                                </IsUserLoggedIn>
+                                </IsUserLogIn>
                             }
                         />
                         <Route
                             path={ROUTE.SIGN_UP}
                             element={
-                                <IsUserLoggedIn>
+                                <IsUserLogIn>
                                     <SignUp />
-                                </IsUserLoggedIn>
+                                </IsUserLogIn>
                             }
                         />
                     </Routes>
