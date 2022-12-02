@@ -129,7 +129,7 @@ const NavBar = () => {
                                                 !dropdownOpen
                                                     ? "hidden"
                                                     : "" +
-                                                      " bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow absolute top-10 right-0"
+                                                      " bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow absolute top-10 right-0 w-[230px]"
                                             }>
                                             <ul
                                                 className="py-1"
@@ -202,7 +202,7 @@ const NavBar = () => {
                                                             .signOut()
                                                     }>
                                                     <span className="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">
-                                                        Sign out
+                                                        Log Out
                                                     </span>
                                                 </li>
                                             </ul>

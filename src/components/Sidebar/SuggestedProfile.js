@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { updateLoggedInUserFollowing } from '../../services/firebase';
-import { updateFollowedUserFollowers } from './../../services/firebase';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { updateLoggedInUserFollowing } from "../../services/firebase";
+import { updateFollowedUserFollowers } from "./../../services/firebase";
 
-const SuggestedProfile = ({ profileDocId, username, profileId, userId, loggedInUserDocId, profileImage }) => {
-    const [ followed, setFollowed ] = useState(false);
+const SuggestedProfile = ({
+    profileDocId,
+    username,
+    profileId,
+    userId,
+    loggedInUserDocId,
+    profileImage,
+}) => {
+    const [followed, setFollowed] = useState(false);
 
     const handleFollowUser = async () => {
         setFollowed(true);
@@ -12,7 +19,7 @@ const SuggestedProfile = ({ profileDocId, username, profileId, userId, loggedInU
         await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
 
         await updateFollowedUserFollowers(profileDocId, userId, false);
-    }
+    };
     return !followed ? (
         <div className="flex flex-row items-center align-items justify-between">
             <div className="flex items-center justify-between">
@@ -24,22 +31,19 @@ const SuggestedProfile = ({ profileDocId, username, profileId, userId, loggedInU
                     />
                 </div>
                 <Link className="ml-2" to={`/${username}`}>
-                    <p className="font-bold text-sm">{ username }</p>
+                    <p className="font-bold text-sm">{username}</p>
                 </Link>
             </div>
             <div>
                 <button
-                    className="text-xs font-bold text-blue-medium"
+                    className="text-xs font-bold text-blue-medium text-blue-500"
                     type="button"
-                    onClick={handleFollowUser}
-                >
+                    onClick={handleFollowUser}>
                     Follow
                 </button>
             </div>
         </div>
-    ) : (
-        null
-    )
+    ) : null;
 };
 
 export default SuggestedProfile;
