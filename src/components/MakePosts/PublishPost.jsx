@@ -8,7 +8,7 @@ import useUser from "../../hooks/useUser";
 import { addPostToFirestore } from "../../services/firebase";
 import HashLoader from "react-spinners/HashLoader";
 
-const ConfirmCreatePost = ({ image, back }) => {
+const PublishPost = ({ image, back }) => {
     const {
         user: { docId, fullName, username, userId, following },
     } = useUser();
@@ -146,4 +146,4 @@ const ConfirmCreatePost = ({ image, back }) => {
     );
 };
 
-export default ConfirmCreatePost;
+export default PublishPost;

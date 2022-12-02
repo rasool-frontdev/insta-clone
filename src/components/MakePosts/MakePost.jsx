@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import ArrowLeftSvg from "./ArrowLeftSvg";
 import CloseSvg from "./CloseSvg";
-import ConfirmCreatePost from "./ConfirmCreatePost";
+import PublishPost from "./PublishPost";
 import UploadImage from "./UpDateImage";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
@@ -66,7 +66,7 @@ const CreatePost = ({ open, setOpen }) => {
                                         handleUpload={handleUpload}
                                     />
                                 ) : (
-                                    <ConfirmCreatePost image={image} />
+                                    <PublishPost image={image} />
                                 )}
                             </div>
                         </div>
