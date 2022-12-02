@@ -1,91 +1,92 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { getAuth, updatePassword, updateEmail } from "firebase/auth";
 import UserContext from "../../context/user";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { storage } from "../../lib/firebase";
 import { updateAvatarUser } from "../../services/firebase";
-import ReactLoading from 'react-loading';
 import useUser from "../../hooks/useUser";
-import { updateUser } from './../../services/firebase';
+import { updateUser } from "./../../services/firebase";
 import EditModalProfile from "../../components/editProfile/EditModalProfile";
+import { CircularProgress } from "@mui/material";
 
 const EditUserPage = () => {
-    const [ loading, setLoading ] = useState(false);
-    const [ fullname, setFullname ] = useState('');
-    const [ username, setUsername ] = useState('');
-    const [ aboutme, setAboutme] = useState('');
-    const [ email, setEmail ] = useState('');
-    const [ password, setPassword ] = useState('');
-    const [ modalOpen, setModalOpen ] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [fullname, setFullname] = useState("");
+    const [username, setUsername] = useState("");
+    const [aboutme, setAboutme] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [modalOpen, setModalOpen] = useState(false);
     const { user } = useContext(UserContext);
     const { user: currentUser, updateProfile: updateProfileUser } = useUser();
     const imageRef = useRef();
 
     useEffect(() => {
-        if(Object.keys(currentUser).length > 0) {
+        if (Object.keys(currentUser).length > 0) {
             setFullname(currentUser.fullName);
             setUsername(currentUser.username);
             setEmail(currentUser.email);
         }
-    }, [currentUser])
+    }, [currentUser]);
 
     const openChangeAvatarInput = () => {
         const avatarImageURL = currentUser.avatarSrc;
-        if(avatarImageURL === "/images/avatars/default.png") {
+        if (avatarImageURL === "/images/avatars/default.png") {
             return imageRef.current.click();
         }
         setModalOpen(true);
-    }
+    };
 
     const updateProfile = async () => {
         setLoading(true);
         const auth = getAuth();
         await updateEmail(auth.currentUser, email);
 
-        if(password.trim()) {
+        if (password.trim()) {
             await updatePassword(auth.currentUser, password);
         }
 
         await updateUser(email, username, aboutme, fullname, currentUser.docId);
         setLoading(false);
         alert("Profile was sucessfully uploaded!");
-    }
+    };
 
     const openInput = () => {
-        setModalOpen(prev => !prev);
+        setModalOpen((prev) => !prev);
         imageRef.current.click();
-    }
+    };
 
     const uploadImage = async (e) => {
         setLoading(true);
         const avatar = e.target.files[0];
         const avatarId = uuidv4();
         const pathAvatar = `images/avatars/${avatarId}.jpg`;
-        if(modalOpen) setModalOpen(false);
-        const uploadImage = storage
-            .ref(pathAvatar)
-            .put(avatar);
+        if (modalOpen) setModalOpen(false);
+        const uploadImage = storage.ref(pathAvatar).put(avatar);
 
-        uploadImage.on("state-changed", snapshot => {
-            // const progress = snapshot.bytesTransferred / snapshot.totalBytes;
-        },
-        () => {
-            alert("Error");
-            setLoading(false);
-        },
-        async () => {
-            const imageUrl = await uploadImage.snapshot.ref.getDownloadURL().then(async url => {
-                const avatar = await updateAvatarUser(url, user.uid);
-                updateProfileUser();
+        uploadImage.on(
+            "state-changed",
+            (snapshot) => {
+                // const progress = snapshot.bytesTransferred / snapshot.totalBytes;
+            },
+            () => {
+                alert("Error");
                 setLoading(false);
-                alert("Succesfully changed avatar!");
-            })
-
-        })
+            },
+            async () => {
+                const imageUrl = await uploadImage.snapshot.ref
+                    .getDownloadURL()
+                    .then(async (url) => {
+                        const avatar = await updateAvatarUser(url, user.uid);
+                        updateProfileUser();
+                        setLoading(false);
+                        alert("Succesfully changed avatar!");
+                    });
+            }
+        );
 
         e.target.value = null;
-    }
-
+    };
 
     return (
         <div className="mt-6 flex justify-center">
@@ -109,14 +110,11 @@ const EditUserPage = () => {
                     </div>
                     <div className="flex-auto w-60 ml-4">
                         <div>
-                            <span className="text-xl">
-                                { user.displayName }
-                            </span>
+                            <span className="text-xl">{user.displayName}</span>
                         </div>
                         <div
                             onClick={openChangeAvatarInput}
-                            className="cursor-pointer"
-                        >
+                            className="cursor-pointer">
                             <span className="text-base font-semibold text-blue-inst">
                                 Upload image
                             </span>
@@ -136,7 +134,7 @@ const EditUserPage = () => {
                     <div className="flex-auto w-60 ">
                         <input
                             value={fullname}
-                            onChange={e => setFullname(e.target.value)}
+                            onChange={(e) => setFullname(e.target.value)}
                             className="border rounded w-full px-1"
                             type="text"
                             id="fullname"
@@ -150,7 +148,7 @@ const EditUserPage = () => {
                     <div className="flex-auto w-60 ...">
                         <input
                             value={username}
-                            onChange={e => setUsername(e.target.value)}
+                            onChange={(e) => setUsername(e.target.value)}
                             className="border rounded w-full px-1"
                             type="text"
                             id="username"
@@ -164,7 +162,7 @@ const EditUserPage = () => {
                     <div className="flex-auto w-60 ...">
                         <input
                             value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="border rounded w-full px-1"
                             type="text"
                             id="email"
@@ -178,7 +176,7 @@ const EditUserPage = () => {
                     <div className="flex-auto w-60 ...">
                         <input
                             value={password}
-                            onChange={e => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             className="border rounded w-full px-1"
                             autoComplete="off"
                             type="password"
@@ -187,20 +185,22 @@ const EditUserPage = () => {
                     </div>
                 </div>
                 <div className="flex mt-6">
-                    <div className="flex-auto w-32 flex justify-end pr-6">
-                    </div>
+                    <div className="flex-auto w-32 flex justify-end pr-6"></div>
                     <div className="flex-auto w-60 ...">
-                        { !loading ? (
+                        {!loading ? (
                             <button
                                 className="bg-blue-inst font-bold text-sm rounded text-white w-20 h-8"
-                                onClick={updateProfile}
-                            >
+                                onClick={updateProfile}>
                                 Submit
                             </button>
                         ) : (
                             <button className="bg-blue-inst font-bold text-sm rounded text-white w-20 h-8 opacity-70">
                                 <div className="flex items-center justify-center">
-                                    <ReactLoading type="spin" color={"black"} height={'30%'} width={'30%'}/>
+                                    <CircularProgress
+                                        className="mr-2 height={'35%'}
+                                    width={'30%'}"
+                                        color="success"
+                                    />
                                 </div>
                             </button>
                         )}
@@ -209,6 +209,6 @@ const EditUserPage = () => {
             </div>
         </div>
     );
-}
+};
 
 export default EditUserPage;

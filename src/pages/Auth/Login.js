@@ -116,6 +116,26 @@ const Login = () => {
                                 </p>
                             </div>
                         </div>
+                        <div className="text-center">
+                            <p>Get the app</p>
+
+                            <div className="flex justify-center mt-[20px]">
+                                <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D6E6D07EE-C70C-42FA-83C4-9BD1C065393F%26utm_content%3Dlo%26utm_medium%3Dbadge&pli=1">
+                                    <img
+                                        className="w-[134px] h-[40px] mr-[10px] cursor-pointer"
+                                        src="/imgs/googlePlay.png"
+                                        alt="google play"
+                                    />
+                                </a>
+                                <a href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1920%2C1030">
+                                    <img
+                                        className="w-[110x] h-[40px]"
+                                        src="/imgs/microsoft.png"
+                                        alt="microsoft"
+                                    />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,8 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import * as ROUTE from "./constants/routes";
 import UserContext from "./context/user";
-import ReactLoading from "react-loading";
 import Layout from "./layouts/Layout.js";
+import { CircularProgress } from "@mui/material";
 
 const ForgotPassword = React.lazy(() => import("./pages/Auth/ForgotPassword"));
 const UserPage = React.lazy(() => import("./pages/UserPage/UserPage"));
@@ -25,11 +25,10 @@ function App() {
                 <React.Suspense
                     fallback={
                         <div className="flex items-center justify-center h-screen">
-                            <ReactLoading
-                                type={"spin"}
-                                color={"#000"}
-                                height={"5%"}
-                                width={"5%"}
+                            <CircularProgress
+                                className="mr-2 height=[10%]
+                                    width=[10%]"
+                                color="success"
                             />
                         </div>
                     }>

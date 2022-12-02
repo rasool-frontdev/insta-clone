@@ -1,11 +1,11 @@
-.image{
+.image {
     max-height: 570px;
     max-width: 570px;
     width: 100%;
-    height: 100%;
+    height: 50%;
 }
 
-.caption-textarea{
+.caption-textarea {
     background: transparent;
     border: none;
     overflow: auto;
@@ -13,7 +13,7 @@
     padding: 4px;
 }
 
-.caption-textarea:focus { 
+.caption-textarea:focus {
     outline: none !important;
     border-color: none;
 }
