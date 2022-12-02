@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import SmileSvg from "./SmileSvg";
 import { EMOJISCHAR } from "../../helpers/Emojis";
 import "./style.css";
-import { storage } from "./../../lib/firebase";
+import { storage } from "../../library/firebase";
 import { v4 as uuidv4 } from "uuid";
 import useUser from "./../../hooks/useUser";
 import { addPostToFirestore } from "./../../services/firebase";
@@ -119,7 +119,7 @@ const ConfirmCreatePost = ({ image, back }) => {
                 </div>
                 {loading ? (
                     <div className="flex justify-end">
-                        <button className="bg-blue-inst font-bold text-sm rounded text-white w-20 h-8 opacity-70">
+                        <button className="bg-[#005c98] font-bold text-sm rounded text-white w-20 h-8 opacity-70">
                             <div className="flex items-center justify-center">
                                 <CircularProgress
                                     className="mr-2 height={'25%'}
@@ -132,7 +132,7 @@ const ConfirmCreatePost = ({ image, back }) => {
                     </div>
                 ) : (
                     <div className="flex justify-end" onClick={handleSubmit}>
-                        <button className="bg-blue-inst font-bold text-sm rounded text-white w-20 h-8">
+                        <button className="bg-[#005c98] font-bold text-sm rounded text-white w-20 h-8">
                             Share
                         </button>
                     </div>

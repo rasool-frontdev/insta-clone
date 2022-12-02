@@ -66,7 +66,7 @@ const NavBar = () => {
             <div className="bg-white border-b h-16" ref={navbarRef}>
                 <div className="flex items-center h-full justify-between container mx-auto max-w-screen-lg relative">
                     <div
-                        className="navbar-logo cursor-pointer"
+                        className="font-['Cookie'] text-4xl cursor-pointer"
                         onClick={() => navigate(HOME)}>
                         Instagram
                     </div>
@@ -213,14 +213,14 @@ const NavBar = () => {
                                 <>
                                     <Link to={LOGIN}>
                                         <button
-                                            className="bg-blue-inst font-bold text-sm rounded text-white w-20 h-8"
+                                            className="bg-[#005c98] font-bold text-sm rounded text-white w-20 h-8"
                                             type="button">
                                             Log In
                                         </button>
                                     </Link>
                                     <Link to={SIGN_UP}>
                                         <button
-                                            className="text-blue-inst font-bold text-sm rounded text-white w-20 h-8"
+                                            className="text-[#005c98] font-bold text-sm rounded text-white w-20 h-8"
                                             type="button">
                                             Sign Up
                                         </button>

@@ -1,37 +1,36 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import FirebaseContext from './../../context/firebase';
+import FirebaseContext from "../../context/firebase";
 import "./style.css";
-import { HOME, LOGIN } from './../../constants/routes';
-import { doesUsernameExist } from './../../services/firebase';
-
+import { HOME, LOGIN } from "../../constants/routes";
+import { doesUsernameExist } from "../../services/firebase";
 
 const SignUp = () => {
     const { firebase } = useContext(FirebaseContext);
     const navigate = useNavigate();
 
-    const [ username, setUsername ] = useState('');
-    const [ fullName, setFullName ] = useState('');
-    const [ email, setEmail ] = useState('');
-    const [ password, setPassword ] = useState('');
-    const [ error, setError ] = useState('');
+    const [username, setUsername] = useState("");
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
-    const isInvalid = password === '' || email === '';
+    const isInvalid = password === "" || email === "";
 
-    const handleSubmit = async(event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
             const usernameExists = await doesUsernameExist(username);
-            if(!usernameExists.length) {
+            if (!usernameExists.length) {
                 try {
                     const userResult = await firebase
                         .auth()
                         .createUserWithEmailAndPassword(email, password);
 
                     await userResult.user.updateProfile({
-                        displayName: username
-                    })
+                        displayName: username,
+                    });
 
                     await firebase.firestore().collection("users").add({
                         userId: userResult.user.uid,
@@ -42,30 +41,30 @@ const SignUp = () => {
                         followers: [],
                         dataCreated: Date.now(),
                         aboutMe: "",
-                        avatarSrc: "https://media.istockphoto.com/vectors/user-avatar-profile-icon-black-vector-illustration-vector-id1209654046?k=20&m=1209654046&s=170667a&w=0&h=BBXhuO36-UfqMS5aYkYvqjAuz3bO1GW-wiXGqRD1Sng="
+                        avatarSrc:
+                            "https://media.istockphoto.com/vectors/user-avatar-profile-icon-black-vector-illustration-vector-id1209654046?k=20&m=1209654046&s=170667a&w=0&h=BBXhuO36-UfqMS5aYkYvqjAuz3bO1GW-wiXGqRD1Sng=",
                     });
 
                     navigate(HOME);
                 } catch (error) {
-                    setFullName('');
-                    setEmail('');
-                    setPassword('');
+                    setFullName("");
+                    setEmail("");
+                    setPassword("");
                     setError(error.message);
                 }
             } else {
                 setError("This username is already taken, please try another.");
             }
         } catch (error) {
-            setEmail('');
-            setPassword('');
+            setEmail("");
+            setPassword("");
             setError(error.message);
         }
-    }
-
+    };
 
     useEffect(() => {
         document.title = "Sign Up - Instagram";
-    }, [])
+    }, []);
 
     return (
         <div className="flex items-center justify-center h-screen">
@@ -74,7 +73,9 @@ const SignUp = () => {
                     <div className="instagram-font text-5xl text-center mb-8">
                         Instagram
                     </div>
-                    { error && <p className="mb-4 text-xs text-red-500">{error}</p> }
+                    {error && (
+                        <p className="mb-4 text-xs text-red-500">{error}</p>
+                    )}
                     <form onSubmit={handleSubmit} className="" method="post">
                         <div>
                             <input
@@ -84,7 +85,7 @@ const SignUp = () => {
                                 className="text-sm text-gray-base w-full py-5 px-4 h-2 border
                                 border-gray-primary rounded mb-2"
                                 value={username}
-                                onChange={e => setUsername(e.target.value)}
+                                onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
                         <div>
@@ -95,7 +96,7 @@ const SignUp = () => {
                                 className="text-sm text-gray-base w-full py-5 px-4 h-2 border
                                 border-gray-primary rounded mb-2"
                                 value={fullName}
-                                onChange={e => setFullName(e.target.value)}
+                                onChange={(e) => setFullName(e.target.value)}
                             />
                         </div>
                         <div>
@@ -106,7 +107,7 @@ const SignUp = () => {
                                 className="text-sm text-gray-base w-full py-5 px-4 h-2 border
                                 border-gray-primary rounded mb-2"
                                 value={email}
-                                onChange={e => setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div>
@@ -117,25 +118,27 @@ const SignUp = () => {
                                 className="text-sm text-gray-base w-full py-5 px-4 h-2 border
                                 border-gray-primary rounded mb-2"
                                 value={password}
-                                onChange={e => setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div>
                             <button
                                 disabled={isInvalid}
                                 type="submit"
-                                className={
-                                    `bg-blue-inst cursor-pointer text-white rounded w-full h-8 font-bold ${isInvalid && "opacity-50"}`
-                                }
-                            >
+                                className={`bg-[#005c98] cursor-pointer text-white rounded w-full h-8 font-bold ${
+                                    isInvalid && "opacity-50"
+                                }`}>
                                 Sign In
                             </button>
                         </div>
                     </form>
                 </div>
                 <div className="rounded flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary">
-                    <p className="text-sm">Have an account?{` `}
-                        <Link to={LOGIN} className="font-bold text-blue-inst">Log In</Link>
+                    <p className="text-sm">
+                        Have an account?{` `}
+                        <Link to={LOGIN} className="font-bold text-[#005c98]">
+                            Log In
+                        </Link>
                     </p>
                 </div>
             </div>

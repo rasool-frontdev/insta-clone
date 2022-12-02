@@ -7,14 +7,14 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import * as ROUTE from "./constants/routes";
 import UserContext from "./context/user";
-import Layout from "./layouts/Layout.js";
+import Layout from "./layouts/Layout.jsx";
 import { CircularProgress } from "@mui/material";
 
 const ForgotPassword = React.lazy(() => import("./pages/Auth/ForgotPassword"));
 const UserPage = React.lazy(() => import("./pages/UserPage/UserPage"));
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
-const Login = React.lazy(() => import("./pages/Auth/Login.js"));
-const SignUp = React.lazy(() => import("./pages/Auth/SignUp.js"));
+const Login = React.lazy(() => import("./pages/Auth/Login.jsx"));
+const SignUp = React.lazy(() => import("./pages/Auth/SignUp.jsx"));
 
 function App() {
     const { user } = useAuthListener();

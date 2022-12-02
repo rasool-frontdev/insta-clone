@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import FirebaseContext from "./../../context/firebase";
+import FirebaseContext from "../../context/firebase";
 import "./style.css";
-import { HOME, LOGIN, SIGN_UP, FORGOTPASSWORD } from "./../../constants/routes";
+import { HOME, LOGIN, SIGN_UP, FORGOTPASSWORD } from "../../constants/routes";
 
 const Login = () => {
     const { firebase } = useContext(FirebaseContext);
@@ -98,7 +98,7 @@ const Login = () => {
                                 <div>
                                     <Link
                                         to={FORGOTPASSWORD}
-                                        className="flex justify-center mt-[30px] font-semibold text-sm text-blue-inst">
+                                        className="flex justify-center mt-[30px] font-semibold text-sm text-[#005c98]">
                                         Forgot password?
                                     </Link>
                                 </div>
@@ -110,7 +110,7 @@ const Login = () => {
                                     Don't have an account?{` `}
                                     <Link
                                         to={SIGN_UP}
-                                        className="font-bold text-blue-inst">
+                                        className="font-bold text-[#005c98]">
                                         Sign up
                                     </Link>
                                 </p>

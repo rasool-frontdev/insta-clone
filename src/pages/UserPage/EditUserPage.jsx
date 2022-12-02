@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { getAuth, updatePassword, updateEmail } from "firebase/auth";
 import UserContext from "../../context/user";
 import { v4 as uuidv4 } from "uuid";
-import { storage } from "../../lib/firebase";
+import { storage } from "../../library/firebase";
 import { updateAvatarUser } from "../../services/firebase";
 import useUser from "../../hooks/useUser";
-import { updateUser } from "./../../services/firebase";
+import { updateUser } from "../../services/firebase";
 import EditModalProfile from "../../components/editProfile/EditModalProfile";
 import { CircularProgress } from "@mui/material";
 
@@ -115,7 +115,7 @@ const EditUserPage = () => {
                         <div
                             onClick={openChangeAvatarInput}
                             className="cursor-pointer">
-                            <span className="text-base font-semibold text-blue-inst">
+                            <span className="text-base font-semibold text-[#005c98]">
                                 Upload image
                             </span>
                             <input
@@ -189,12 +189,12 @@ const EditUserPage = () => {
                     <div className="flex-auto w-60 ...">
                         {!loading ? (
                             <button
-                                className="bg-blue-inst font-bold text-sm rounded text-white w-20 h-8"
+                                className="bg-[#005c98] font-bold text-sm rounded text-white w-20 h-8"
                                 onClick={updateProfile}>
                                 Submit
                             </button>
                         ) : (
-                            <button className="bg-blue-inst font-bold text-sm rounded text-white w-20 h-8 opacity-70">
+                            <button className="bg-[#005c98] font-bold text-sm rounded text-white w-20 h-8 opacity-70">
                                 <div className="flex items-center justify-center">
                                     <CircularProgress
                                         className="mr-2 height={'35%'}

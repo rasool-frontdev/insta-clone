@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Timeline from "../../components/Timeline";
-import Sidebar from "./../../components/Sidebar/index";
+import Sidebar from "../../components/Sidebar/index";
 
 const HomePage = () => {
     return (

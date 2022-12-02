@@ -5,15 +5,14 @@
     height: 50%;
 }
 
+.caption-textarea:focus {
+    outline: none !important;
+    border-color: none;
+}
 .caption-textarea {
     background: transparent;
     border: none;
     overflow: auto;
     resize: none;
     padding: 4px;
-}
-
-.caption-textarea:focus {
-    outline: none !important;
-    border-color: none;
 }
