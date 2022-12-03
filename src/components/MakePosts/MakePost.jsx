@@ -5,8 +5,8 @@ import PublishPost from "./PublishPost";
 import UploadImage from "./UpDateImage";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
-const CreatePost = ({ open, setOpen }) => {
-    const [image, setImage] = useState(null);
+const MakePost = ({ open, setOpen }) => {
+    const [img, setImg] = useState(null);
     const [confirmModal, setConfirmModal] = useState(false);
     const imageInput = useRef(null);
     const postRef = useRef(null);
@@ -25,7 +25,7 @@ const CreatePost = ({ open, setOpen }) => {
     }, [postRef]);
 
     const handleUpload = (event) => {
-        setImage(event.target.files[0]);
+        setImg(event.target.files[0]);
         setConfirmModal(true);
     };
 
@@ -66,7 +66,7 @@ const CreatePost = ({ open, setOpen }) => {
                                         handleUpload={handleUpload}
                                     />
                                 ) : (
-                                    <PublishPost image={image} />
+                                    <PublishPost image={img} />
                                 )}
                             </div>
                         </div>
@@ -78,4 +78,4 @@ const CreatePost = ({ open, setOpen }) => {
     );
 };
 
-export default CreatePost;
+export default MakePost;
