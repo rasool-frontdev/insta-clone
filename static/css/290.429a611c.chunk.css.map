@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/290.429a611c.chunk.css","mappings":"0EACA,gBACI,0BACJ","sources":["pages/Auth/style.css"],"sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');\r\n.instagram-font {\r\n    font-family: Cookie, cursive;\r\n}\r\n\r\n"],"names":[],"sourceRoot":""}
