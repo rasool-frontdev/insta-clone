@@ -1,6 +1,6 @@
 import React from "react";
 
-const UploadImage = ({ imageInput, handleUpload }) => {
+const UploadImage = ({ imgInput, handlerUpload }) => {
     return (
         <div
             className="relative p-6 flex items-center justify-center"
@@ -13,13 +13,13 @@ const UploadImage = ({ imageInput, handleUpload }) => {
                     <input
                         type="file"
                         className="hidden"
-                        ref={imageInput}
-                        onChange={handleUpload}
+                        ref={imgInput}
+                        onChange={handlerUpload}
                     />
                     <button
                         type="button"
                         className="bg-blue-500 font-bold text-sm rounded text-white px-2 py-1"
-                        onClick={() => imageInput.current.click()}>
+                        onClick={() => imgInput.current.click()}>
                         Select from Desktop
                     </button>
                 </div>

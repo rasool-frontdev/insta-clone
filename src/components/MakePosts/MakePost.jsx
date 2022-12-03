@@ -8,7 +8,7 @@ import { RemoveScrollBar } from "react-remove-scroll-bar";
 const MakePost = ({ open, setOpen }) => {
     const [img, setImg] = useState(null);
     const [confirmModal, setConfirmModal] = useState(false);
-    const imageInput = useRef(null);
+    const imgInput = useRef(null);
     const postRef = useRef(null);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const MakePost = ({ open, setOpen }) => {
         };
     }, [postRef]);
 
-    const handleUpload = (event) => {
+    const handlerUpload = (event) => {
         setImg(event.target.files[0]);
         setConfirmModal(true);
     };
@@ -62,8 +62,8 @@ const MakePost = ({ open, setOpen }) => {
                                 </div>
                                 {!confirmModal ? (
                                     <UploadImage
-                                        imageInput={imageInput}
-                                        handleUpload={handleUpload}
+                                        imgInput={imgInput}
+                                        handlerUpload={handlerUpload}
                                     />
                                 ) : (
                                     <PublishPost image={img} />
