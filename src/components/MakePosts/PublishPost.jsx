@@ -44,7 +44,7 @@ const PublishPost = ({ image, back }) => {
                             imageId
                         );
                         setLoading(0);
-                        alert("image succesfully uploaded");
+                        alert("Successfully uploaded");
                         window.location.reload();
                     });
             }

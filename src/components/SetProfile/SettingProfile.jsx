@@ -19,7 +19,7 @@ const EditModalProfile = ({
 
         deleteObject(desertRef)
             .then(() => {
-                alert("Successfully");
+                alert("Deleted Photo");
             })
             .catch((error) => {
                 alert(error.message);
