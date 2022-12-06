@@ -1,5 +1,5 @@
 import React from "react";
-import useAuthListener from "./hooks/useAuthListener";
+import useAuth from "./hooks/useAuth";
 import EditUserPage from "./pages/UserPage/EditUserPage";
 import ProtectedRoute from "./helpers/ProtectedRoutes";
 import IsUserLogIn from "./helpers/IsUserLogIn";
@@ -17,7 +17,7 @@ const Login = React.lazy(() => import("./pages/Auth/Login.jsx"));
 const SignUp = React.lazy(() => import("./pages/Auth/SignUp.jsx"));
 
 function App() {
-    const { user } = useAuthListener();
+    const { user } = useAuth();
 
     return (
         <UserContext.Provider value={{ user }}>
