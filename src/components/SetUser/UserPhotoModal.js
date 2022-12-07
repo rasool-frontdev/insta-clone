@@ -13,7 +13,7 @@ import { RemoveScrollBar } from "react-remove-scroll-bar";
 import UserPhotoModalComments from "./UserPhotoModalComments";
 import "./style.css";
 import FooterModal from "./FooterModal";
-import UserContext from "../../Context/user";
+import UserContext from "../../context/user";
 import UserPhotoModalPost from "./UserPhotoModalPost";
 import { UserProfileContext } from "./UserProfile";
 

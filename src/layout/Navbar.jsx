@@ -1,16 +1,16 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { EDIT_PROFILE, HOME, LOGIN } from "../Constant/routes";
-import SquarePlus from "../icons/SquarePlus";
-import UserContext from "../Context/User";
-import FirebaseContext from "../Context/firebase";
-import SignOut from "../icons/LogOut";
+import UserContext from "../context/user";
+import FirebaseContext from "../context/firebase";
 import { SIGN_UP } from "../Constant/routes";
 import CreatePost from "../components/MakePosts/MakePost";
 import useUser from "../hooks/useUser";
 import SearchBar from "./SearchBar";
 import { BsSearch } from "react-icons/bs";
 import { ImHome } from "react-icons/im";
+import LogOut from "../icons/LogOut";
+import SquarePlus from "../icons/addPost";
 import "./style.css";
 
 const Navbar = () => {
@@ -29,9 +29,9 @@ const Navbar = () => {
     } = useUser();
 
     useEffect(() => {
-        window.addEventListener("scroll", isSticky);
+        window.addEventListener("scroll", theSticky);
         return () => {
-            window.removeEventListener("scroll", isSticky);
+            window.removeEventListener("scroll", theSticky);
         };
     });
 
@@ -50,7 +50,7 @@ const Navbar = () => {
         };
     }, [searchRef]);
 
-    const isSticky = (e) => {
+    const theSticky = (e) => {
         const header = navbarRef.current;
         const scrollTop = window.scrollY;
         scrollTop >= 63
@@ -109,7 +109,7 @@ const Navbar = () => {
                                             onClick={() =>
                                                 firebase.auth().signOut()
                                             }>
-                                            <SignOut />
+                                            <LogOut />
                                         </button>
                                     </div>
                                     <div

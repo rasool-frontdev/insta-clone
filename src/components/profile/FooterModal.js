@@ -1,8 +1,8 @@
 import React, { useContext, useState, useRef } from "react";
 import SmileSvg from "../MakePosts/SmilesSvg";
-import UserContext from "../../Context/User";
+import UserContext from "../../context/user";
 import { getPhotosByPhotoId } from "../../services/firebase";
-import FirebaseContext from "../../Context/firebase";
+import FirebaseContext from "../../context/firebase";
 import { formatDistance } from "date-fns";
 import { EMOJISCHAR } from "../../helpers/Emojis";
 

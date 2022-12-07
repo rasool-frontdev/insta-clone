@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { getUserByUserId } from "../services/firebase";
-import UserContext from "../Context/User";
+import UserContext from "../context/user";
 
 const useUser = () => {
     const [activeUser, setActiveUser] = useState({});

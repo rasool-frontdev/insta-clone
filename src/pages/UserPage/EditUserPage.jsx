@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { getAuth, updatePassword, updateEmail } from "firebase/auth";
-import UserContext from "../../Context/User";
+import UserContext from "../../context/user";
 import { v4 as uuidv4 } from "uuid";
 import { storage } from "../../library/firebase";
 import { updateAvatarUser } from "../../services/firebase";

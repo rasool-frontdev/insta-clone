@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import FirebaseContext from "../../Context/firebase";
+import FirebaseContext from "../../context/firebase";
 import "./style.css";
 import { HOME, LOGIN } from "../../Constant/routes";
 import { doesUsernameExist } from "../../services/firebase";

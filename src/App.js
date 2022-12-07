@@ -6,8 +6,8 @@ import IsUserLogIn from "./helpers/IsUserLogIn";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import * as ROUTE from "./Constant/routes";
-import UserContext from "./Context/User";
-import Layout from "./layouts/Layout.jsx";
+import UserContext from "./context/user";
+import Layout from "./layout/Layout.jsx";
 import { CircularProgress } from "@mui/material";
 
 const ForgotPassword = React.lazy(() => import("./pages/Auth/ForgotPassword"));

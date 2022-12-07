@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignOut = () => {
+const LogOut = () => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -18,4 +18,4 @@ const SignOut = () => {
     );
 };
 
-export default SignOut;
+export default LogOut;

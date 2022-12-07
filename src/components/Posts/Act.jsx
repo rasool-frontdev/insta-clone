@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import UserContext from "../../Context/User";
-import FirebaseContext from "../../Context/firebase";
+import UserContext from "../../context/user";
+import FirebaseContext from "../../context/firebase";
 
 const Act = ({ docId, totalLikes, likedPhoto, handleFocus }) => {
     const {

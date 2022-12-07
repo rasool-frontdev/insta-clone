@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import { EMOJISCHAR } from "../../helpers/Emojis";
-import FirebaseContext from "../../Context/firebase";
-import UserContext from "../../Context/User";
+import FirebaseContext from "../../context/firebase";
+import UserContext from "../../context/user";
 
 const AddComment = ({ docId, comments, setComments, commentInput }) => {
     const [comment, setComment] = useState("");
