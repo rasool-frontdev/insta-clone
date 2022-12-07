@@ -100,7 +100,7 @@ const Navbar = () => {
                                     <div
                                         className="cursor-pointer flex items-center justify-center mr-6"
                                         onClick={() => setOpen(true)}>
-                                        <SquarePlus />
+                                        <addPost />
                                     </div>
                                     <div className="cursor-pointer flex items-center justify-center mr-6">
                                         <button
