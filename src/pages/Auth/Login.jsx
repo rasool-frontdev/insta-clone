@@ -33,14 +33,14 @@ const Login = () => {
 
   return (
     <div className="flex justify-center gap-[30px]">
-      <div className="w-[30%] h-full bg-[url('/imgs/loginLeftImg.png')]  bg-no-repeat h-full flex my-[2rem]">
+      <div className="w-[30%] h-full bg-[url('/imgs/loginLeftImg.png')] hidden lg:inline  bg-no-repeat h-full flex my-[2rem]">
         <img
           src="/imgs/screenshot1.png"
           alt="second bg"
           className="w-[250px] h-[541px] ml-[158px] mt-[25px]"
         />
       </div>
-      <div className="h-[399px] flex align-center justify-center mt-[3rem] w-[350px] border border-grey">
+      <div className="bg-transparent h-[399px] flex align-center justify-center mt-[3rem] w-[350px] border border-grey">
         <div>
           <div className="flex justify-center mt-[47px] mb-[20px]">
             <img
