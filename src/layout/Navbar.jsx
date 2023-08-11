@@ -8,9 +8,9 @@ import CreatePost from "../components/MakePosts/MakePost";
 import useUser from "../hooks/useUser";
 import SearchBar from "./SearchBar";
 import { BsSearch } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
 import { ImHome } from "react-icons/im";
-import LogOut from "../icons/LogOut";
-// import addPost from "../icons/addPost";
+import { GrAdd } from "react-icons/gr";
 import "./style.css";
 
 const Navbar = () => {
@@ -97,14 +97,14 @@ const Navbar = () => {
                   <div
                     className="cursor-pointer flex items-center justify-center mr-6"
                     onClick={() => setOpen(true)}>
-                    ADD
+                    <GrAdd />
                   </div>
                   <div className="cursor-pointer flex items-center justify-center mr-6">
                     <button
                       type="button"
                       title="Sign Out"
                       onClick={() => firebase.auth().signOut()}>
-                      <LogOut />
+                      <FiLogOut />
                     </button>
                   </div>
                   <div
